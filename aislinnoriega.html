@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #734;
+}
+ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+div {
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+<ul>
+      <li><button onclick=Appetizers()>Appetizers</button></li>
+      <li><button onclick=Entrees()>Entrees</button></li>
+      <li><button onclick=Desserts()>Desserts</button></li>
+    </ul>
+<h1>Aislinn's restaurant</h1>
+<h2>The Best Food You Will Put In Your Mouth!</h2>
+<div id="random"> </div>
+
+<script>
+AppetizersImages = [
+              'url("https://www.wideopeneats.com/wp-content/uploads/2017/08/Mozzerella-Sticks-with-Spicy-Southwestern-Marinara.jpg")',
+              'url("https://cdn.cheapism.com/images/042916_best_chips_and_salsa_slide_0_fs.max-784x410.jpg")',
+              'url("http://www.pamperedchef.com/iceberg/com/recipe/1049163-lg.jpg")',
+]
+
+EntreesImages = [
+          'url("http://realidadoaxaca.com/wp-content/uploads/2018/01/SALUD-M1.jpg")',
+          'url("https://thecolony.urban8food.com/wp-content/uploads/sites/2/2018/09/tacosss.jpg")',
+          'url("https://d1doqjmisr497k.cloudfront.net/-/media/mccormick-us/recipes/gourmet/s/800/shredded-chicken-enchiladas.ashx?vd=20180710T024404Z&hash=42A2ABACDA0C15E532636F10F0C844DA9FB5D777")',
+]
+         
+DessertsImages = [
+           'url("https://www.cookingclassy.com/wp-content/uploads/2018/08/churros-55.jpg")',
+           'url("https://www.themerchantbaker.com/wp-content/uploads/2016/05/Strawberry-Tres-Leches-Cake-9-NEW.jpg")',
+           'url("http://images.media-allrecipes.com/userphotos/960x960/5289580.jpg")',
+]
+
+AppetizersDivs = [
+  '<div class="item"><p>Mozzerella Sticks<span class="price">$4.50</span><br /><small>Sticks of bread filled with special homemade cheese with a side of homemade tomato sauce </small></p></div>',
+  
+  '<div class="item"><p> Chips and Salsa<span class="price">$5.50</span><br /><small>Tortilla Chips with a dip of our homemade tomato salsa dip</small></p></div>',
+
+  '<div class="item"><p>Cheese Nachos<span class="price">$5.50</span><br /><small>Tortilla chips with poured cheese on top packed with green peppers, black olives, lettuce, tomatos, sour cream and guacamole</small></p></div>',
+]
+
+ EntreesDivs = [
+   '<div class="item"><p>Elote con mayonesa y queso<span class="price">$6.25</span><br /><small>Corn with mayonaise all around topped with cheese and spice if you choose </small></p></div>',
+   
+   '<div class="item"> <p>Tacos con tortilla<span class="price">$6</span><br /><small> Tacos filled with beef, chicken or cabeza and onions, guacmole, cheese, lettuce, tomatos and sour cream </small></p></div>',
+
+   '<div class="item"> <p>Enchiladas<span class="price">$8.50</span><br /> <small>meat wrapped in tortilla filled with toppings of your choosing topped with our special red sauce </small></p></div>',
+]
+
+DessertsDivs = [
+  '<div class="item"><p>Churros<span class="price">$3.25</span><br /><small>Pipe strips of dough into hot oil using a pastry bag. Fry until golden; drain on paper towels. Combine 1/2 cup sugar and cinnamon. Roll drained churros in cinnamon and sugar mixture </small></p></div>',
+  
+  '<div class="item"><p>Tres Leches<span class="price">$6</span><br /><small>This cake is made with three layers: Cake, filling, and topping. There are 4 types of milk in the filling and topping (whole milk, condensed milk, evaporated milk, and heavy cream). </small></p></div>',
+
+  '<div class="item"><p>Flan<span class="price">$6.50</span><br /><small>flan is made with sweetened condensed milk and evaporated milk, giving it an ultra-creamy, luxurious texture — like a cross between pudding and cheesecake. </small></p></div>',
+]
+  
+function Appetizers() {
+  food = document.getElementById("random")
+  food.innerHTML = ''
+	food.innerHTML += AppetizersDivs[0]
+  food.innerHTML += AppetizersDivs[1]
+  food.innerHTML += AppetizersDivs[2]
+  
+   //alert("You have chosen Appetizers to look at!")
+    items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+		  items[i].style.background = AppetizersImages[i]
+		  items[i].style.backgroundSize = '100% 100%'
+    }
+}  
+
+function Entrees() {
+   stuff = document.getElementById("random")
+    stuff.innerHTML = ''
+	 stuff.innerHTML += EntreesDivs[0]
+   stuff.innerHTML += EntreesDivs[1]
+   stuff.innerHTML += EntreesDivs[2]
+   
+   //alert("You have chosen Entrees, Good Choice!")
+    items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+		  items[i].style.background = EntreesImages[i]
+		  items[i].style.backgroundSize = '100% 100%'
+    }
+}  
+
+function Desserts() {
+   shop = document.getElementById("random")
+     shop.innerHTML = ''
+	 shop.innerHTML += DessertsDivs[0]
+   shop.innerHTML += DessertsDivs[1]
+   shop.innerHTML += DessertsDivs[2]
+   
+    //alert("You have chosen Desserts, Yummy!")
+   items = document.getElementsByClassName("item")
+   for (i=0; i<3; i=i+1) {
+		items[i].style.background = DessertsImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+   }
+}  
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
