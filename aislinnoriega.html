@@ -55,19 +55,15 @@ p {
   -webkit-transition: height .5s;
   -moz-transition: height .5s;
 }
-
 small {
   opacity: 0;
 }
-
 .show-description p {
   height: 150px;
 }
-
 .show-description small {
   opacity: 1;
 }
-
 .price {
   float: right;
 }
@@ -101,6 +97,7 @@ small {
       <li><button onclick=Appetizers()>Appetizers</button></li>
       <li><button onclick=Entrees()>Entrees</button></li>
       <li><button onclick=Desserts()>Desserts</button></li>
+		<li><button onclick=Drinks()>Drinks</button></li>
     </ul>
 <h1>Aislinn's restaurant</h1>
 <h2>The Best Food You Will Put In Your Mouth!</h2>
@@ -112,12 +109,10 @@ AppetizersImages = [
               'url("https://cdn.cheapism.com/images/042916_best_chips_and_salsa_slide_0_fs.max-784x410.jpg")',
               'url("http://www.pamperedchef.com/iceberg/com/recipe/1049163-lg.jpg")',
 ]
-
 EntreesImages = [
           'url("http://realidadoaxaca.com/wp-content/uploads/2018/01/SALUD-M1.jpg")',
-          'url("https://thecolony.urban8food.com/wp-content/uploads/sites/2/2018/09/tacosss.jpg")',
-          'url("https://d1doqjmisr497k.cloudfront.net/-/media/mccormick-us/recipes/gourmet/s/800/shredded-chicken-enchiladas.ashx?vd=20180710T024404Z&hash=42A2ABACDA0C15E532636F10F0C844DA9FB5D777")',
-	  'url("https://www.thespruceeats.com/thmb/AbEGw890lnCZV7EeFjWrLGfe09s=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/Getty-Tamales-5810c4a75f9b58564c28e5f8.jpg")',
+          'url("https://thecolony.urban8food.com/wp-content/uploads/sites/2/2018/09/tacosss.jpg")', 'url("https://d1doqjmisr497k.cloudfront.net/-/media/mccormick-us/recipes/gourmet/s/800/shredded-chicken-enchiladas.ashx?vd=20180710T024404Z&hash=42A2ABACDA0C15E532636F10F0C844DA9FB5D777")',
+		    'url("https://static.smuckersrms.com/PhotoImage.ashx?recipeid=3648&w=600&h=600")',
 ]
          
 DessertsImages = [
@@ -125,29 +120,42 @@ DessertsImages = [
            'url("https://www.themerchantbaker.com/wp-content/uploads/2016/05/Strawberry-Tres-Leches-Cake-9-NEW.jpg")',
            'url("http://images.media-allrecipes.com/userphotos/960x960/5289580.jpg")',
 ]
-
+DrinksImages = [
+	'url("https://cdn.influenster.com/media/product/image/Sprite_Lemon-lime_soda_100_Natural_Flavors_7-5_oz.png.750x750_q85ss0_progressive.png")',
+	'url("https://www.myamericanmarket.com/873-large_default/coca-cola-classic.jpg")',
+	'url("https://www.liveeatlearn.com/wp-content/uploads/2017/03/nice-cream-milkshakes-3-flavors-5.jpg")',
+	'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQUljeDg27k8Og0ml5V3na5SFop2_C-b9-22sDgaqyhJO8oSUPA")',
+	'url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Red_and_white_wine_12-2015.jpg/1200px-Red_and_white_wine_12-2015.jpg")',
+	
+]
 AppetizersDivs = [
-  '<div class="item"><p>Mozzerella Sticks<span class="price">$4.50</span><br /><small>Sticks of bread filled with special homemade cheese with a side of homemade tomato sauce </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Mozzerella Sticks<span class="price">$4.50</span><br /><small>Sticks of bread filled with special homemade cheese with a side of homemade tomato sauce </small></p></div>',
   
-  '<div class="item"><p> Chips and Salsa<span class="price">$5.50</span><br /><small>Tortilla Chips with a dip of our homemade tomato salsa dip</small></p></div>',
-
-  '<div class="item"><p>Cheese Nachos<span class="price">$5.50</span><br /><small>Tortilla chips with poured cheese on top packed with green peppers, black olives, lettuce, tomatos, sour cream and guacamole</small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Chips and Salsa<span class="price">$5.50</span><br /><small>Tortilla Chips with a dip of our homemade tomato salsa dip</small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Cheese Nachos<span class="price">$5.50</span><br /><small>Tortilla chips with poured cheese on top packed with green peppers, black olives, lettuce, tomatos, sour cream and guacamole</small></p></div>',
 ]
-
  EntreesDivs = [
-   '<div class="item"><p>Elote con mayonesa y queso<span class="price">$6.25</span><br /><small>Corn with mayonaise all around topped with cheese and spice if you choose </small></p></div>',
+   '<div class="item" onclick=this.classList.toggle("show-description")><p>Elote con mayonesa y queso<span class="price">$6.25</span><br /><small>Corn with mayonaise all around topped with cheese and spice if you choose </small></p></div>',
    
-   '<div class="item"> <p>Tacos con tortilla<span class="price">$6</span><br /><small> Tacos filled with beef, chicken or cabeza and onions, guacmole, cheese, lettuce, tomatos and sour cream </small></p></div>',
-
-   '<div class="item"> <p>Enchiladas<span class="price">$8.50</span><br /> <small>meat wrapped in tortilla filled with toppings of your choosing topped with our special red sauce </small></p></div>',
+   '<div class="item" onclick=this.classList.toggle("show-description")><p>Tacos con tortilla<span class="price">$6</span><br /><small> Tacos filled with beef, chicken or cabeza and onions, guacmole, cheese, lettuce, tomatos and sour cream </small></p></div>',
+	 
+   '<div class="item" onclick=this.classList.toggle("show-description")><p>Enchiladas<span class="price">$8.50</span><br /> <small>meat wrapped in tortilla filled with toppings of your choosing topped with our special red sauce </small></p></div>',
+	 
+   '<div class="item" onclick=this.classList.toggle("show-description")><p>Tamales<span class="price">$6.50</span><br /> <small>meat wrapped with corn or you can get beef or even chicken </small></p></div>',
+	 
 ]
-
 DessertsDivs = [
-  '<div class="item"><p>Churros<span class="price">$3.25</span><br /><small>Pipe strips of dough into hot oil using a pastry bag. Fry until golden; drain on paper towels. Combine 1/2 cup sugar and cinnamon. Roll drained churros in cinnamon and sugar mixture </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Churros<span class="price">$3.25</span><br /><small>Pipe strips of dough into hot oil using a pastry bag. Fry until golden; drain on paper towels. Combine 1/2 cup sugar and cinnamon. Roll drained churros in cinnamon and sugar mixture </small></p></div>',
   
-  '<div class="item"><p>Tres Leches<span class="price">$6</span><br /><small>This cake is made with three layers: Cake, filling, and topping. There are 4 types of milk in the filling and topping (whole milk, condensed milk, evaporated milk, and heavy cream). </small></p></div>',
-
-  '<div class="item"><p>Flan<span class="price">$6.50</span><br /><small>flan is made with sweetened condensed milk and evaporated milk, giving it an ultra-creamy, luxurious texture — like a cross between pudding and cheesecake. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Tres Leches<span class="price">$6</span><br /><small>This cake is made with three layers: Cake, filling, and topping. There are 4 types of milk in the filling and topping (whole milk, condensed milk, evaporated milk, and heavy cream). </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Flan<span class="price">$6.50</span><br /><small>flan is made with sweetened condensed milk and evaporated milk, giving it an ultra-creamy, luxurious texture — like a cross between pudding and cheesecake. </small></p></div>',
+]
+DrinksDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Sprite<span class="price">$1.25</span><br /><small>Delicious lemon-lime soda </small></p></div>',
+	'<div class="item" onclick=this.classList.toggle("show-description")><p>Coca-Cola<span class="price">$1.25</span><br /><small>Delicious soda to enjoy with your food </small></p></div>',
+	'<div class="item" onclick=this.classList.toggle("show-description")><p>Milkshakes<span class="price">$4.25</span><br /><small>Delicous ice cream shakes, you can get chocolate strawberry or vanilla </small></p></div>',
+	'<div class="item" onclick=this.classList.toggle("show-description")><p>Beer<span class="price">$3.25</span><br /><small>Crack a cold one with the boys </small></p></div>',
+	'<div class="item" onclick=this.classList.toggle("show-description")><p>Wine<span class="price">$3.25</span><br /><small>Get away from life and enjoy a nice glass of wine with your friends while eating food </small></p></div>',
 ]
   
 function Appetizers() {
@@ -164,22 +172,21 @@ function Appetizers() {
 		  items[i].style.backgroundSize = '100% 100%'
     }
 }  
-
 function Entrees() {
    stuff = document.getElementById("random")
     stuff.innerHTML = ''
 	 stuff.innerHTML += EntreesDivs[0]
    stuff.innerHTML += EntreesDivs[1]
    stuff.innerHTML += EntreesDivs[2]
+	stuff.innerHTML += EntreesDivs[3]
    
    //alert("You have chosen Entrees, Good Choice!")
     items = document.getElementsByClassName("item")
-    for (i=0; i<3; i=i+1) {
+    for (i=0; i<4; i=i+1) {
 		  items[i].style.background = EntreesImages[i]
 		  items[i].style.backgroundSize = '100% 100%'
     }
 }  
-
 function Desserts() {
    shop = document.getElementById("random")
      shop.innerHTML = ''
@@ -194,6 +201,22 @@ function Desserts() {
 		items[i].style.backgroundSize = '100% 100%'
    }
 }  
+function Drinks() {
+	shop = document.getElementById("random")
+	  shop.innerHTML = ''
+	 shop.innerHTML+= DrinksDivs[0]
+	shop.innerHTML+= DrinksDivs[1]
+	shop.innerHTML+= DrinksDivs[2]
+	shop.innerHTML+= DrinksDivs[3]
+	shop.innerHTML+= DrinksDivs[4]
+	
+    //alert("You have chosen Drinks, Enjoy!")
+   items = document.getElementsByClassName("item")
+   for (i=0; i<5; i=i+1) {
+		items[i].style.background = DrinksImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+	}
+}
 
   $('div').on('click', function() {
       $(this).toggleClass('show-description');
@@ -201,3 +224,5 @@ function Desserts() {
 </script>
 
 </body>
+
+
