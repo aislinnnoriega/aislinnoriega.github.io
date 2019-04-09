@@ -8,7 +8,7 @@
 body {
 	font-size: 15px;
     line-height: 1.52;
-    color: pink;
+    color: purple;
     font-size: 16px;
 	 font-family: 'Lobster', cursive;
     font-weight: 400;
@@ -41,16 +41,16 @@ table {
 #banner h2{
 	 font-family: 'Lobster', cursive;
     font-size: 45px;
-    color: pink;
+    color: purple;
 }
 #banner p{
 	 font-family: 'Lobster', cursive;
-    color: purple
-	 ;
+    color: purple;
     font-size: 34px;
 }
 .section-padding{
     padding: 60px 0px;
+	 background-color: pink;
 }
 .logo-name{
 	 font-family: 'Lobster', cursive;
@@ -65,7 +65,7 @@ table {
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: pink;
+    background-color: purple;
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
@@ -107,7 +107,7 @@ table {
     font-weight: 300;
 }
 .header-p {
-    color: pink;
+    color: purple;
     font-size: 16px;
 }
 .msg-row {
@@ -116,6 +116,7 @@ table {
 .media-body, .media-left, .media-right {
     display: table-cell;
     vertical-align: top;
+	 background-color: black;
 }
 .bg-13 {background-color: black;
     width: 70px;
@@ -199,7 +200,7 @@ table {
     height: auto;
 }
 .contacts-btn {
-    background-color:  #FFB03B !important;
+    background-color:  black !important;
     color: white !important;
     width: 170px;
     height: 54px;
@@ -287,7 +288,7 @@ table {
     border-right: 2px solid #841b2d;
 }
 .details-text {
-    background-color: rgba(14, 4, 4, 0.70);
+    background-color: pink;
     border-right: 2px solid #A87F41;
     padding: 20px 20px 30px 30px;
     overflow: auto;
@@ -303,13 +304,13 @@ table {
     padding: 10px 0px;
 }
 .details-text p {
-    color: #E8E8E8;
+    color: pink;
     line-height: 26px;
     letter-spacing: 1px;
     font-weight: 300;
 }
 .btn-read-more {
-    background: #FFB03B;
+    background: purple;
     padding: 7px 19px;
 	 font-family: 'Lobster', cursive;
     font-size: 12px;
@@ -381,7 +382,7 @@ table {
 #menu-flters ul li a {
     padding: 10px 20px;
     font-size: 14px;
-    color: pink;
+    color: purple;
     border-radius: 0px;
     border: 1px solid #BBBBBB;
     text-decoration: none;
@@ -415,7 +416,7 @@ table {
     color: purple;
 }
 .footer .widget, .footer address {
-    color: black;
+    color: purple;
     text-transform: none;
     font-style: normal;
     padding-bottom: 15px;
